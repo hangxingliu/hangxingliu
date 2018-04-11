@@ -1,2 +1,13 @@
 # hangxingliu
-:man_with_gua_pi_mao: A node module about hangxingliu (me)
+
+A node module about hangxingliu (me)
+
+``` bash
+npm install hangxingliu -g
+hangxingliu
+hangxingliu github
+```
+
+## Author
+
+[Liu Yue](https://github.com/hangxingliu)

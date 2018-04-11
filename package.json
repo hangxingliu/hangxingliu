@@ -1,0 +1,25 @@
+{
+  "name": "hangxingliu",
+  "version": "1.0.0",
+  "description": "a node module about hangxingliu (me)",
+  "main": "index.js",
+  "bin": "bin",
+  "scripts": {
+    "test": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hangxingliu/hangxingliu.git"
+  },
+  "keywords": [
+    "hangxingliu"
+  ],
+  "author": "Liu Yue",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hangxingliu/hangxingliu/issues"
+  },
+  "homepage": "https://github.com/hangxingliu/hangxingliu#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}
