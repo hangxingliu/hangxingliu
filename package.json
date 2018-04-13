@@ -1,11 +1,12 @@
 {
   "name": "hangxingliu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a node module about hangxingliu (me)",
   "main": "index.js",
   "bin": "bin",
   "scripts": {
-    "test": "node ./index.js"
+	"test": "node ./bin",
+	"start": "node ./bin"
   },
   "repository": {
     "type": "git",
