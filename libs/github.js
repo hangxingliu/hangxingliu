@@ -1,4 +1,6 @@
 //@ts-check
+/// <reference path="../node.d.ts" />
+/// <reference path="../github.d.ts" />
 
 'use strict';
 
@@ -18,7 +20,10 @@ module.exports = {
 	listRepo: listRepo
 };
 
-function listRepo() {
+/**
+ * @param {{top?: number; keyword?: string}} [opts]
+ */
+function listRepo(opts) {
 	let uri = url.parse(link.githubRepoAPI);
 	let options = {
 		method: 'GET',
@@ -33,7 +38,7 @@ function listRepo() {
 
 	let cacheResponse = getCache();
 	if (cacheResponse)
-		return display(cacheResponse);
+		return display(cacheResponse, opts);
 
 	console.log(hypertext.convert(`  <dim>fetching hangxingliu's repositories ...</dim>\n`));
 
@@ -49,7 +54,7 @@ function listRepo() {
 		response.on('data', chunk => { body += chunk; });
 		response.on('end', () => {
 			setCache(body);
-			display(body)
+			display(body, opts)
 		});
 	});
 
@@ -57,8 +62,14 @@ function listRepo() {
 	request.end();
 }
 
-/** @param {string} json */
-function display(json) {
+/**
+ * @param {string} json
+ * @param {{top?: number; keyword?: string}} [opts]
+ */
+function display(json, opts) {
+	opts = opts || {};
+
+	/** @type {GithubRepo[]} */
 	let repositories = parseJSON(json);
 
 	if (!Array.isArray(repositories))
@@ -68,6 +79,16 @@ function display(json) {
 	repositories.filter(repo => !!repo);
 
 	hypertext.log("  <b><cyan>Repositories:</cyan></b>\n");
+
+	if (opts.keyword) {
+		let keyword = opts.keyword.trim().toLowerCase();
+		repositories = repositories.filter(repo =>
+			(repo.name || '').toLowerCase().indexOf(keyword) >= 0||
+			(repo.description || '').toLowerCase().indexOf(keyword) >= 0);
+	}
+
+	if (opts.top)
+		repositories = repositories.slice(0, opts.top);
 
 	repositories.forEach(repo => {
 		let url = repo.html_url;
