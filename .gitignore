@@ -1,3 +1,11 @@
+# archived files
+*.tar
+*.gz
+*.tgz
+
+# typing files
+node.d.ts
+
 # Logs
 logs
 *.log
