@@ -1,4 +1,5 @@
 //@ts-check
+/// <reference path="../node.d.ts" />
 
 /*
 	Detect is output colorful. And color text.
@@ -9,8 +10,6 @@
 */
 
 'use strict';
-
-let os = require('os');
 
 let isColorful = initIsColorful(),
 	isLinkful = initIsLinkful();

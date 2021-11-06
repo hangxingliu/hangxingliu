@@ -1,23 +1,5 @@
-# hangxingliu
+### Welcome to my profile page :wave:
 
-[![Build Status](https://travis-ci.org/hangxingliu/hangxingliu.svg?branch=master)](https://travis-ci.org/hangxingliu/hangxingliu)
+I am working and researching algorithmic trading, IoT, and solar energy.
 
-A node module about hangxingliu (me)
-
-``` bash
-# Quick way (npm > 5.2.0)
-npx hangxingliu
-
-# Normal way
-npm i -g hangxingliu
-hangxingliu
-
-# Query my repositories
-hangxingliu github
-hangxingliu github 10 # top 10
-hangxingliu github keyword # query keyword
-```
-
-## Author
-
-[Liu Yue](https://github.com/hangxingliu)
+![Profile Image](./imgs/profile-bottom.png)
